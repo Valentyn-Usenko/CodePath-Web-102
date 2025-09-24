@@ -1,0 +1,80 @@
+/* General body styles for the entire app */
+body {
+  font-family: Arial, sans-serif;
+  background-color: blanchedalmond;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global container for the event cards using Flexbox */
+.events-container {
+  display: flex;
+  flex-wrap: wrap; /* This is the key. It allows items to wrap to a new line */
+  gap: 20px;
+  padding: 20px;
+  justify-content: center; /* This centers the items in the container */
+}
+/* Styles for a single event card */
+.sport-event-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 200px; /* Fixed width for the card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sport-event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.sport-event-card img {
+  width: 150px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.sport-event-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.sport-event-card p {
+  font-size: 1rem;
+  margin: 4px 0;
+  color: #666;
+}
+
+/* Styles for the button */
+.sport-event-card button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.sport-event-card button:hover {
+  background-color: #0056b3;
+}
+
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
