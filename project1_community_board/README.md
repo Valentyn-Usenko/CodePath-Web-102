@@ -1,16 +1,44 @@
-# React + Vite
+# Web Development Project 1 - *Sport Event Manager*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Submitted by: **Valentyn Usenko**
 
-Currently, two official plugins are available:
+This web app: **in this app you're capable of choosing any king of the sport you're interested in and it will provide you with the link to the official website**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Time spent: **4** hours spent in total
 
-## React Compiler
+## Required Features
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The following **required** functionality is completed:
 
-## Expanding the ESLint configuration
+- [ x] **The app has a cohesive, unique theme for events or resources relevant to a specific community**
+  - [x ] Header/title describing the theme is displayed
+- [x ] **At least 10 unique events or resources are displayed in a responsive card format**
+  - [x ] There are at least 10 cards displayed 
+  - [ x] The cards should be displayed in an organized format (ex. a grid, or in one line)
+  - [x ] Each card should include some information about the event or resource
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+The following **optional** features are implemented:
+
+- [z ] Buttons or links to a related resources are on each card component
+  - [z ] All cards have buttons or links in addition to text
+- [ ] The site is responsive for both desktop and mobile formats
+  - [ ] Web app is shown in a mobile format
+  - [ ] **Video Walkthrough Special Instructions**: To ease the grading process, please use Chrome Developer Tools' "Toggle Device" button to demonstrate that your web application's responsiveness in both a desktop *and* a mobile format. Detailed instructions can be found below this stretch feature on the project page. 
+
+The following **additional** features are implemented:
+
+* [ ] List anything else that you added to improve the site's functionality!
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented required features:
+
+<img src='https://imgur.com/a/SJNyMGP' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+## Notes
+
+Describe any challenges encountered while building the app.
+
+The only challenge I've faced was when i was trying to make all icons to be aligned horizontally, not vertically 
