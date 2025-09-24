@@ -20,8 +20,8 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [z ] Buttons or links to a related resources are on each card component
-  - [z ] All cards have buttons or links in addition to text
+- [x ] Buttons or links to a related resources are on each card component
+  - [x ] All cards have buttons or links in addition to text
 - [ ] The site is responsive for both desktop and mobile formats
   - [ ] Web app is shown in a mobile format
   - [ ] **Video Walkthrough Special Instructions**: To ease the grading process, please use Chrome Developer Tools' "Toggle Device" button to demonstrate that your web application's responsiveness in both a desktop *and* a mobile format. Detailed instructions can be found below this stretch feature on the project page. 
