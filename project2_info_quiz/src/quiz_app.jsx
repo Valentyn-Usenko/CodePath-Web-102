@@ -1,4 +1,4 @@
-import './quiz_app.css'
+import React from "react";
 
 const QuizzBox = () => {
     return (
