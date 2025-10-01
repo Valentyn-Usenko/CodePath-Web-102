@@ -1,27 +1,131 @@
-/* App.css */
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #0707e6;
+  background: linear-gradient(61deg, rgba(7, 7, 230, 1) 0%, rgba(252, 70, 70, 1) 100%);
+  color: #333;
+  min-height: 100vh; 
+}
+
+
+.app-container {
+  min-height: 100vh;            
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       
+  align-items: center;         
+  padding: 20px;
+  box-sizing: border-box;
+}
 
 .MainCard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  perspective: 1000px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 .Centered-content {
-  width: 500px;
-  max-width: 90%; 
-  padding: 40px; 
-  background-color: #fffacd;
-  color: #333; 
-  border: 2px solid #a0a0a0;
-  border-radius: 12px; 
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
-  text-align: center;
-  font-size: 1.4rem; 
-  line-height: 1.6; 
+  width: 600px;
+  min-height: 250px;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 
-.Centered-content p {
-  margin: 0; 
-  font-weight: 500; 
+.Centered-content.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.easy {
+  background: rgba(0, 255, 0, 0.25); 
+}
+.medium {
+  background: rgba(255, 255, 0, 0.25); 
+}
+.hard {
+  background: rgba(255, 0, 0, 0.25);
+}
+
+.difficulty-indicator {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.diff-easy {
+  color: green;
+}
+.diff-medium {
+  color: goldenrod;
+}
+.diff-hard {
+  color: red;
+}
+
+.arrow-container {
+  margin-top: 40px;   
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.arrow-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 15px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.arrow-btn:hover {
+  background-color: #357ABD;
+  transform: scale(1.1);
+}
+
+@media (max-width: 700px) {
+  .Centered-content {
+    width: 90%;
+    min-height: 200px;
+  }
+
+  .arrow-container {
+    gap: 20px;
+  }
+
+  .arrow-btn {
+    font-size: 1.2rem;
+    padding: 12px 16px;
+  }
 }
