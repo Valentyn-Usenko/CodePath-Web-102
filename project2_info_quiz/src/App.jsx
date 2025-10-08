@@ -15,7 +15,7 @@ const cards = [
   },
   { 
     question: "What is the output of: int x = 5; cout << ++x; ?", 
-    answer: "6 (because pre-increment increments before printing)", 
+    answer: "6", 
     difficulty: "easy" 
   },
   { 
