@@ -1,0 +1,147 @@
+/* VeniVici-specific styles (append to App.css) */
+.vv-root {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: inherit;
+}
+
+.vv-title {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.vv-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.vv-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.vv-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.vv-btn.vv-clear {
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,0.04);
+}
+
+.vv-main {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.vv-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1rem;
+  align-items: start;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+.vv-image-wrap {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #111;
+}
+
+.vv-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.vv-attrs {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+.vv-attr-row {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.vv-attr-value {
+  margin-left: 0.4rem;
+  display: inline-block;
+  padding: 0.12rem 0.3rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.vv-attr-value.clickable {
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+
+.vv-meta {
+  margin-top: 0.5rem;
+}
+
+.vv-banlist {
+  margin-top: 1rem;
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vv-banlist ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.vv-ban-item {
+  background: rgba(255,255,255,0.03);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+}
+
+.vv-remove-hint {
+  margin-left: 0.4rem;
+  opacity: 0.8;
+}
+
+.vv-placeholder {
+  color: rgba(255,255,255,0.7);
+  padding: 2rem;
+}
+
+.vv-muted {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+}
+
+.vv-error {
+  color: #ffb3b3;
+  margin-bottom: 0.6rem;
+}
