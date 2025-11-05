@@ -28,13 +28,11 @@ export default function Sidebar() {
         <Link to="/" style={linkStyle("/")}>
           Dashboard
         </Link>
-        <Link to="/" style={linkStyle("/about")}>
-          About (placeholder)
-        </Link>
+
       </nav>
 
       <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "#aaa" }}>
-        Simple dashboard — click a launch card to view details.
+        Click a launch card to view details.
       </div>
     </aside>
   );
