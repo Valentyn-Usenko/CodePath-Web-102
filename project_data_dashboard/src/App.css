@@ -40,3 +40,45 @@
 .read-the-docs {
   color: #888;
 }
+
+
+/* Sidebar + main layout helpers */
+.app-shell {
+  background: #070707;
+  color: #eaeaea;
+}
+
+/* make card elements consistent (you already have classes but these help baseline) */
+.stat-card h2 {
+  margin: 0;
+}
+.launch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.launch-card {
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  text-align: center;
+  transition: transform 0.12s ease;
+}
+.launch-card img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  margin-bottom: 0.6rem;
+}
+.launch-card:hover {
+  transform: translateY(-4px);
+}
+.filter-bar input,
+.filter-bar select {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: #0b0b0b;
+  color: #eaeaea;
+}
