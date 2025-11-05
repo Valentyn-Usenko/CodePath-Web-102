@@ -69,12 +69,10 @@ function DataDashboard() {
     return arr;
   }, [launches]);
 
-  // helper: success vs failed totals
   const successSummary = React.useMemo(() => {
     const success = launches.filter((l) => l.success).length;
     const failed = launches.filter((l) => l.success === false).length;
     const unknown = launches.length - success - failed;
-    // We'll combine unknown with failed for a simple two-slice pie (or keep 3 slices if we want)
     return [
       { name: "Success", value: success },
       { name: "Failed/Unknown", value: failed + unknown },
@@ -109,7 +107,7 @@ function DataDashboard() {
         </div>
       </div>
 
-      {/* Charts */}
+      {}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 20, marginTop: 20 }}>
         <section style={{ background: "rgba(255,255,255,0.03)", padding: 12, borderRadius: 8 }}>
           <h3 style={{ marginTop: 0 }}>Launches per Year</h3>

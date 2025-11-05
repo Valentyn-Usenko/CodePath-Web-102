@@ -17,7 +17,6 @@ export default function LaunchDetail() {
         const data = await res.json();
         setLaunch(data);
 
-        // fetch rocket and launchpad names if available
         if (data.rocket) {
           fetch(`https://api.spacexdata.com/v4/rockets/${data.rocket}`)
             .then((r) => r.json())
@@ -110,7 +109,7 @@ export default function LaunchDetail() {
         </div>
       </div>
 
-      {/* Extra: show payloads if available */}
+      {}
       {launch.payloads && launch.payloads.length > 0 && (
         <div style={{ marginTop: 18 }}>
           <h3>Payload(s)</h3>
@@ -122,7 +121,7 @@ export default function LaunchDetail() {
         </div>
       )}
 
-      {/* Direct unique URL: the current page already has unique URL /launch/:id */}
+      {}
       <div style={{ marginTop: 18, fontSize: 12, color: "#aaa" }}>
         Direct link to this page: <code>{window.location.href}</code>
       </div>

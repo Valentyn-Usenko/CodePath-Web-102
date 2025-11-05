@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DataDashboard />} />
           <Route path="/launch/:id" element={<LaunchDetail />} />
-          {/* fallback to dashboard */}
+          {}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
