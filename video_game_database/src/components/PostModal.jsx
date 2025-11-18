@@ -6,6 +6,7 @@ export default function PostModal({ onClose, onCreated }) {
   const [title, setTitle] = useState('')
   const [shortOpinion, setShortOpinion] = useState('')
   const [content, setContent] = useState('')
+  const [secretKey, setSecretKey] = useState('')
   const [query, setQuery] = useState('')
   const [games, setGames] = useState([])
   const [loadingGames, setLoadingGames] = useState(false)
@@ -34,6 +35,20 @@ export default function PostModal({ onClose, onCreated }) {
 
   async function handleCreate(e) {
     e.preventDefault()
+    if (!secretKey) {
+      alert('Secret key is required to create a post.')
+      return
+    }
+
+    async function hashSecret(secret) {
+      const enc = new TextEncoder()
+      const data = enc.encode(secret)
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+      return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('')
+    }
+
+    const hashed = await hashSecret(secretKey)
+
     const payload = {
       title,
       name,
@@ -42,7 +57,7 @@ export default function PostModal({ onClose, onCreated }) {
       game_id: selectedGame?.id || null,
       game_name: selectedGame?.name || null,
       game_art_url: selectedGame?.background_image || null,
-      // secret_key removed — posts no longer require a secret
+      secret_key: hashed
     }
 
     const { data, error } = await supabase.from('posts').insert([payload]).select().single()
@@ -107,10 +122,17 @@ export default function PostModal({ onClose, onCreated }) {
             } />
           </label>
 
-          {/* secret key removed — posts are created without a secret */}
+          <label>Secret key (required to edit/delete)
+            <input
+              required
+              type="password"
+              value={secretKey}
+              onChange={e => setSecretKey(e.target.value)}
+            />
+          </label>
 
           <div className="modal-actions">
-            <button type="submit">Create post</button>
+            <button type="submit" disabled={!secretKey}>Create post</button>
             <button type="button" onClick={onClose}>Cancel</button>
           </div>
         </form>

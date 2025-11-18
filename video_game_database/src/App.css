@@ -11,15 +11,13 @@ body { background: #000; font-family: Arial; margin: 0; color: #fff; }
   align-items: center;
 }
 
-/* Ensure main content fills the app width so child elements align */
 main { width: 100%; }
 
-/* Hide visible scrollbar but keep scrolling functional */
 .app-root {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
 }
-.app-root::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
+.app-root::-webkit-scrollbar { display: none; } 
 header { display:flex; flex-direction:column; align-items:center; gap:0.5rem; margin-bottom:1rem; width:100%; }
 header button { padding: 0.5rem 1rem; }
 
