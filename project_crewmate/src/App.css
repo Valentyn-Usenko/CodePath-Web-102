@@ -1,0 +1,10 @@
+#app-root { max-width: 900px; margin: 2rem auto; padding: 1rem; }
+.app-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.app-header nav a { margin-left: 0.6rem; }
+.card { background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 12px; margin-top: 1rem; }
+.form { display:flex; flex-direction:column; gap:0.8rem; }
+.form label { display:flex; flex-direction:column; text-align:left; }
+.options { display:flex; gap:0.6rem; flex-wrap:wrap; }
+.option { padding:0.4rem 0.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; cursor:pointer; }
+.option.active { background: rgba(100,108,255,0.16); border-color: rgba(100,108,255,0.3); }
+.crew-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.6rem; }
