@@ -9,9 +9,9 @@ const [loading, setLoading] = useState(true)
 
 
 async function fetchCrewmates() {
-setLoading(true)
+	setLoading(true)
 const { data, error } = await supabase
-.from('crewmates')
+.from('project_crewmate')
 .select('*')
 .order('created_at', { ascending: false })
 setLoading(false)

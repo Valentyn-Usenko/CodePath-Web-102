@@ -15,8 +15,8 @@ const roles = ['Tank', 'Healer', 'DPS', 'Support']
 async function handleSubmit(e) {
 e.preventDefault()
 setLoading(true)
-const { data, error } = await supabase
-.from('crewmates')
+	const { data, error } = await supabase
+		.from('project_crewmate')
 .insert([{ name, role, power }])
 .select()
 setLoading(false)

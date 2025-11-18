@@ -16,7 +16,7 @@ export default function EditCrewmate() {
   async function fetchOne() {
     setLoading(true)
     const { data, error } = await supabase
-      .from('crewmates')
+      .from('project_crewmate')
       .select('*')
       .eq('id', id)
       .single()
@@ -40,7 +40,7 @@ export default function EditCrewmate() {
   async function handleSave(e) {
     e.preventDefault()
     const { error } = await supabase
-      .from('crewmates')
+      .from('project_crewmate')
       .update({ name, role, power })
       .eq('id', id)
 
@@ -55,7 +55,7 @@ export default function EditCrewmate() {
 
   async function handleDelete() {
     if (!confirm('Delete this crewmate?')) return
-    const { error } = await supabase.from('crewmates').delete().eq('id', id)
+    const { error } = await supabase.from('project_crewmate').delete().eq('id', id)
     if (error) {
       alert('Could not delete: ' + error.message)
       return
