@@ -1,7 +1,26 @@
 body { background: #000; font-family: Arial; margin: 0; color: #fff; }
 
-.app-root { max-width: 900px; margin: 2rem auto; padding: 1rem; }
-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
+.app-root {
+  max-width: 900px;
+  margin: 0;
+  padding: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ensure main content fills the app width so child elements align */
+main { width: 100%; }
+
+/* Hide visible scrollbar but keep scrolling functional */
+.app-root {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.app-root::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
+header { display:flex; flex-direction:column; align-items:center; gap:0.5rem; margin-bottom:1rem; width:100%; }
 header button { padding: 0.5rem 1rem; }
 
 .modal-overlay {

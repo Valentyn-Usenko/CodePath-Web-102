@@ -35,6 +35,11 @@ export default function PostModal({ onClose, onCreated }) {
 
   async function handleCreate(e) {
     e.preventDefault()
+    if (!secretKey) {
+      alert('Secret key is required to create a post.')
+      return
+    }
+
     const payload = {
       title,
       name,
@@ -43,7 +48,7 @@ export default function PostModal({ onClose, onCreated }) {
       game_id: selectedGame?.id || null,
       game_name: selectedGame?.name || null,
       game_art_url: selectedGame?.background_image || null,
-      secret_key: secretKey || null
+      secret_key: secretKey
     }
 
     const { data, error } = await supabase.from('posts').insert([payload]).select().single()
@@ -108,8 +113,13 @@ export default function PostModal({ onClose, onCreated }) {
             } />
           </label>
 
-          <label>Secret key for editing/deleting
-            <input value={secretKey} onChange={e => setSecretKey(e.target.value)} />
+          <label>Secret key (required to create a post)
+            <input
+              required
+              type="password"
+              value={secretKey}
+              onChange={e => setSecretKey(e.target.value)}
+            />
           </label>
 
           <div className="modal-actions">

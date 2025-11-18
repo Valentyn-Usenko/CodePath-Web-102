@@ -114,11 +114,12 @@ export default function PostPage({ postId, onBack }) {
       <div className="danger-zone">
         <h4>Delete post</h4>
         <input
+          type="password"
           placeholder="Enter secret key"
           value={secretInput}
           onChange={e => setSecretInput(e.target.value)}
         />
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete} disabled={!secretInput}>Delete</button>
       </div>
     </div>
   )
