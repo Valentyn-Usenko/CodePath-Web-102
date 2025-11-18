@@ -6,7 +6,7 @@ export default function PostPage({ postId, onBack }) {
   const [comments, setComments] = useState([])
   const [loading, setLoading] = useState(true)
   const [commentText, setCommentText] = useState('')
-  const [secretInput, setSecretInput] = useState('')
+  
 
   const fetchData = async () => {
     setLoading(true)
@@ -58,9 +58,7 @@ export default function PostPage({ postId, onBack }) {
   }
 
   const handleDelete = async () => {
-    if (!secretInput) return alert('Enter secret key')
-    if (secretInput !== post.secret_key) return alert('Wrong secret key')
-
+    // delete without secret key
     await supabase.from('posts').delete().eq('id', postId)
     onBack()
   }
@@ -113,13 +111,7 @@ export default function PostPage({ postId, onBack }) {
 
       <div className="danger-zone">
         <h4>Delete post</h4>
-        <input
-          type="password"
-          placeholder="Enter secret key"
-          value={secretInput}
-          onChange={e => setSecretInput(e.target.value)}
-        />
-        <button onClick={handleDelete} disabled={!secretInput}>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
   )
