@@ -46,7 +46,7 @@ if (!crewmate) return <p>Not found.</p>
 return (
 <article className="card">
 <h2>{crewmate.name}</h2>
-<p><strong>Role:</strong> {crewmate.role}</p>
+<p><strong>Role:</strong> <span className="role-text">{crewmate.role}</span></p>
 <p><strong>Power:</strong> {crewmate.power}</p>
 <p className="muted">Created at: {new Date(crewmate.created_at).toLocaleString()}</p>
 

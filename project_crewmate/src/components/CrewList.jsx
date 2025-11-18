@@ -37,8 +37,8 @@ return (
 {crewmates.map((c) => (
 <li key={c.id} className="crew-item">
 <Link to={`/crewmate/${c.id}`} className="crew-link">
-<div className="crew-name">{c.name}</div>
-<div className="crew-meta">{c.role} • Power {c.power}</div>
+			<div className="crew-name">{c.name}</div>
+			<div className="crew-meta"><span className="role-text">{c.role}</span> • Power {c.power}</div>
 </Link>
 <div>
 <Link to={`/crewmate/${c.id}/edit`} className="small-button">Edit</Link>

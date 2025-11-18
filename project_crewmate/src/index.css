@@ -119,6 +119,11 @@ button.danger:hover {
   text-decoration: underline;
 }
 
+/* Role text styling */
+.role-text {
+  color: #000; /* explicit black for role labels like "Healer" */
+}
+
 .small-button {
   font-size: 0.9rem;
   padding: 0.4rem 0.7rem;
