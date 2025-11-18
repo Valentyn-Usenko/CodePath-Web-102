@@ -26,9 +26,7 @@ function App() {
           </Routes>
         </main>
 
-        <footer className="app-footer">
-          <small>Build your dream team — saves to Supabase</small>
-        </footer>
+        <footer className="app-footer"></footer>
       </div>
     </BrowserRouter>
   )
