@@ -46,7 +46,7 @@ The following **optional** features are implemented:
 
 
 - [x ] Web app implements pseudo-authentication
-  - Users can only edit and delete posts or delete comments by entering the secret key, which is set by the user during post creation
+  - Users can only edit and delete posts or delete comments by entering the password, which is set by the user during post creation
   - **or** upon launching the web app, the user is assigned a random user ID. It will be associated with all posts and comments that they make and displayed on them
   - For both options, only the original user author of a post can update or delete it
 - [ ] Users can repost a previous post by referencing its post ID. On the post page of the new post

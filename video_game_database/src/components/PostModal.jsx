@@ -6,11 +6,12 @@ export default function PostModal({ onClose, onCreated }) {
   const [title, setTitle] = useState('')
   const [shortOpinion, setShortOpinion] = useState('')
   const [content, setContent] = useState('')
-  const [secretKey, setSecretKey] = useState('')
+  const [password, setPassword] = useState('')
   const [query, setQuery] = useState('')
   const [games, setGames] = useState([])
   const [loadingGames, setLoadingGames] = useState(false)
   const [selectedGame, setSelectedGame] = useState(null)
+  const [passwordOptional, setPasswordOptional] = useState(false)
 
   useEffect(() => {
     if (!query) return
@@ -35,8 +36,20 @@ export default function PostModal({ onClose, onCreated }) {
 
   async function handleCreate(e) {
     e.preventDefault()
-    if (!secretKey) {
-      alert('Secret key is required to create a post.')
+    if (!name) {
+      alert('Name is required.')
+      return
+    }
+    if (!title) {
+      alert('Title is required.')
+      return
+    }
+    if (!selectedGame) {
+      alert('Please select a game.')
+      return
+    }
+    if (!passwordOptional && !password) {
+      alert('Password is required to create a post.')
       return
     }
 
@@ -47,7 +60,7 @@ export default function PostModal({ onClose, onCreated }) {
       return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('')
     }
 
-    const hashed = await hashSecret(secretKey)
+    const hashed = password ? await hashSecret(password) : null
 
     const payload = {
       title,
@@ -57,7 +70,7 @@ export default function PostModal({ onClose, onCreated }) {
       game_id: selectedGame?.id || null,
       game_name: selectedGame?.name || null,
       game_art_url: selectedGame?.background_image || null,
-      secret_key: hashed
+      password: hashed
     }
 
     const { data, error } = await supabase.from('posts').insert([payload]).select().single()
@@ -122,17 +135,26 @@ export default function PostModal({ onClose, onCreated }) {
             } />
           </label>
 
-          <label>Secret key (required to edit/delete)
+          <label>Password
             <input
-              required
-              type="password"
-              value={secretKey}
-              onChange={e => setSecretKey(e.target.value)}
+              type="text"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              disabled={passwordOptional}
             />
           </label>
 
+          <label>
+            <input
+              type="checkbox"
+              checked={passwordOptional}
+              onChange={e => setPasswordOptional(e.target.checked)}
+            />
+            Make password optional
+          </label>
+
           <div className="modal-actions">
-            <button type="submit" disabled={!secretKey}>Create post</button>
+            <button type="submit" disabled={!name || !title || !selectedGame || (!passwordOptional && !password)}>Create post</button>
             <button type="button" onClick={onClose}>Cancel</button>
           </div>
         </form>
