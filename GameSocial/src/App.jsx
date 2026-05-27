@@ -3,24 +3,24 @@ import { supabase } from './supabaseClient'
 import PostList from './components/PostList'
 import PostModal from './components/PostModal'
 import PostPage from './components/PostPage'
-import AuthModal from './AuthModal' // Make sure import path matches where you saved it
+import AuthModal from './components/AuthModal' 
 import './App.css'
 
 export default function App() {
-  const [showPostModal, setShowPostModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const [activePost, setActivePost] = useState(null)
   
-  // New Auth State
+  // New state for Authentication
   const [session, setSession] = useState(null)
   const [authMode, setAuthMode] = useState(null) // 'login', 'signup', or null
 
   useEffect(() => {
-    // 1. Get initial session
+    // 1. Check active session on load
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
     })
 
-    // 2. Listen for auth changes (login, logout, signup)
+    // 2. Listen for login/logout events
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -39,7 +39,7 @@ export default function App() {
       <header>
         <h1>GameSocial</h1>
         
-        {/* Auth Controls */}
+        {/* Auth Buttons */}
         <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
           {!session ? (
             <>
@@ -48,13 +48,13 @@ export default function App() {
             </>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontSize: '0.9rem' }}>{session.user.email}</span>
+              <span style={{ fontSize: '0.8rem' }}>{session.user.email}</span>
               <button onClick={handleLogout}>Logout</button>
             </div>
           )}
         </div>
 
-        <button onClick={() => setShowPostModal(true)}>Create Post</button>
+        <button onClick={() => setShowModal(true)}>Create Post</button>
       </header>
 
       <main>
@@ -62,13 +62,15 @@ export default function App() {
         {activePost && <PostPage postId={activePost.id} onBack={() => setActivePost(null)} />}
       </main>
 
-      {showPostModal && (
+      {/* Post Creation Modal */}
+      {showModal && (
         <PostModal 
-          onClose={() => setShowPostModal(false)} 
-          onCreated={(p) => { setShowPostModal(false); setActivePost(p); }} 
+          onClose={() => setShowModal(false)} 
+          onCreated={(p) => { setShowModal(false); setActivePost(p); }} 
         />
       )}
 
+      {/* Auth Modal (Login/Signup) */}
       {authMode && (
         <AuthModal 
           mode={authMode} 
